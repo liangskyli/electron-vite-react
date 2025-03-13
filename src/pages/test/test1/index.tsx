@@ -31,6 +31,26 @@ const Index = () => {
       >
         请求接口
       </button>
+      <div>
+        <button
+          onClick={async () => {
+            //window.electronAPI.callDllExample();
+            const { isSuccess, isCapLock } =
+              await window.electronAPI.getCaplockStatus();
+            console.log(
+              isSuccess
+                ? isCapLock
+                  ? '当前大写'
+                  : '当前小写'
+                : '获取大小写状态失败',
+            );
+            console.log(window.electronAPI);
+          }}
+          className={classNames(styles.testButton, 'test-button-local')}
+        >
+          windows dll调用
+        </button>
+      </div>
       <div className={styles.optics}>
         <div>
           optics-ts适用于需要对大型嵌套对象进行深度操作，且希望代码类型安全、易读的场景。

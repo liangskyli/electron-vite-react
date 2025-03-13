@@ -33,6 +33,9 @@ function createMainWindow() {
       preload: path.join(__dirname, '../preload/index.cjs'),
     },
   });
+  if (isDevelopment) {
+    mainWindow.webContents.openDevTools();
+  }
   context.mainWindow = mainWindow;
   context.mainWindow.on('close', (event) => {
     if (process.platform !== 'darwin') {

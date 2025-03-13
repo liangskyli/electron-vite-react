@@ -1,4 +1,5 @@
 import { app, protocol } from 'electron';
+import { initIpcMain } from './ipc.ts';
 import { createMainWindow } from './main-window';
 
 protocol.registerSchemesAsPrivileged([
@@ -13,6 +14,7 @@ protocol.registerSchemesAsPrivileged([
   },
 ]);
 
+initIpcMain();
 app.whenReady().then(() => {
   createMainWindow();
 });
