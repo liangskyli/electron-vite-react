@@ -119,12 +119,14 @@ const callDllExample = () => {
     MessageBoxW(null, 'Hello World!', 'Koffi', MB_ICONINFORMATION);
 };
 const getKeyboardState = () => {
-  const GetKeyboardState = user32Lib.func('GetKeyboardState', 'bool', [
-    'int *',
-  ]);
+  koffi.alias('PBYTE', koffi.pointer('int'));
+  const GetKeyboardState = user32Lib.func(
+    'bool GetKeyboardState(PBYTE lpKeyState)',
+  );
 
-  const buf = Buffer.alloc(256);
-  const status = GetKeyboardState(buf);
-  return { status, buf };
+  const lpKeyState = Buffer.alloc(256);
+  const result = GetKeyboardState(lpKeyState) as boolean;
+  koffi.reset();
+  return { result, lpKeyState };
 };
 export { callDllExample, getKeyboardState };

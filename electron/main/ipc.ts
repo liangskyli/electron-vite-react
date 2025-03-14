@@ -8,12 +8,12 @@ const initIpcMain = () => {
     return result;
   });
   ipcMain.handle('getKeyboardCapLockState', async () => {
-    const { status, buf } = getKeyboardState();
+    const { result, lpKeyState } = getKeyboardState();
     let isCapLock = false;
-    if (status) {
-      isCapLock = buf[keyParam['capslock']] === 1;
+    if (result) {
+      isCapLock = lpKeyState[keyParam['capslock']] === 1;
     }
-    return { isSuccess: status, isCapLock };
+    return { isSuccess: result, isCapLock };
   });
 };
 export { initIpcMain };
