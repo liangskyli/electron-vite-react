@@ -1,5 +1,8 @@
 import { contextBridge } from 'electron';
+import { initPreloadLogger } from '../common/logger/preload.ts';
 import { getTestHandle1 } from './ipc/test.ts';
+
+initPreloadLogger();
 
 const apiKey = 'electronAPI';
 

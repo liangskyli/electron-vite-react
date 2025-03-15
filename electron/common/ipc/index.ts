@@ -4,5 +4,7 @@ export type IpcResponse<T = unknown> = {
   /** 响应数据 */
   data?: T;
   /** 错误信息 */
-  msg?: string;
+  message?: string;
 };
+
+export const defaultTimeout = 10 * 1000;

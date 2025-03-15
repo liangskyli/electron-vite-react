@@ -15,6 +15,7 @@ const initMainLogger = () => {
 
     logger.errorHandler.startCatching({});
     logger.scope.defaultLabel = 'default';
+    logger.scope.labelPadding = false;
     logger.transports.console.level = false;
     logger.transports.file.maxSize = 1024 * 1024 * 2;
     logger.transports.file.archiveLogFn = archiveLogFn;
@@ -23,8 +24,8 @@ const initMainLogger = () => {
       variables: PathVariables,
       message?: LogMessage,
     ) => {
-      const isRenderer = message?.variables?.processType === 'renderer';
-      const fileName = isRenderer ? 'renderer.log' : 'main.log';
+      const processType = message?.variables?.processType ?? 'main';
+      const fileName = `${processType}.log`;
       return path.join(variables.libraryDefaultDir, fileName);
     };
     logger.transports.file.format =

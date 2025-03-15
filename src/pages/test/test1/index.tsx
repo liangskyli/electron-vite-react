@@ -34,7 +34,9 @@ const Index = () => {
       <div>
         <button
           onClick={async () => {
-            const testHandle1 = await window.electronAPI.getTestHandle1();
+            const testHandle1 = await window.electronAPI.getTestHandle1({
+              id: 'id1',
+            });
             console.log('testHandle1:', testHandle1);
           }}
           className={classNames(styles.testButton, 'test-button-local')}
