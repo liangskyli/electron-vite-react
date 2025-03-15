@@ -7,3 +7,5 @@ const api = {
 };
 
 contextBridge.exposeInMainWorld(apiKey, api);
+
+export type IElectronAPI = typeof api;

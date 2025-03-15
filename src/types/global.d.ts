@@ -1,5 +1,7 @@
-interface Window {
-  /** eruda */
-  // eslint-disable-next-line @typescript-eslint/no-explicit-any
-  eruda: any;
+import type { IElectronAPI } from '../../electron/preload';
+
+declare global {
+  interface Window {
+    electronAPI: IElectronAPI;
+  }
 }

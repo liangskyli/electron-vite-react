@@ -7,8 +7,8 @@ protocol.registerSchemesAsPrivileged([
     privileges: {
       secure: true,
       standard: true,
-      supportFetchAPI: true,
-      allowServiceWorkers: true,
+      supportFetchAPI: false,
+      allowServiceWorkers: false,
     },
   },
 ]);
