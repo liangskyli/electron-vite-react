@@ -1,5 +1,6 @@
 import { app, protocol } from 'electron';
 import { getMainLogger, initMainLogger } from '../common/logger/main.ts';
+import initIpcMain from './ipc';
 import { createMainWindow } from './main-window';
 
 initMainLogger();
@@ -17,6 +18,7 @@ protocol.registerSchemesAsPrivileged([
   },
 ]);
 
+initIpcMain();
 app.whenReady().then(() => {
   indexLog.info('app ready createMainWindow');
   createMainWindow();

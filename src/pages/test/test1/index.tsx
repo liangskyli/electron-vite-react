@@ -31,6 +31,17 @@ const Index = () => {
       >
         请求接口
       </button>
+      <div>
+        <button
+          onClick={async () => {
+            const testHandle1 = await window.electronAPI.getTestHandle1();
+            console.log('testHandle1:', testHandle1);
+          }}
+          className={classNames(styles.testButton, 'test-button-local')}
+        >
+          ipc调用
+        </button>
+      </div>
       <div className={styles.optics}>
         <div>
           optics-ts适用于需要对大型嵌套对象进行深度操作，且希望代码类型安全、易读的场景。
