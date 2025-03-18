@@ -48,7 +48,8 @@
     "update:deps": "pnpm update --interactive --latest"
   },
   "dependencies": {
-    "electron-log": "^5.3.2"
+    "electron-log": "^5.3.2",
+    "koffi": "^2.10.1"
   },
   "devDependencies": {
     "@commitlint/cli": "^19.8.0",

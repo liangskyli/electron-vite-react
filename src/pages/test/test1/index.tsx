@@ -43,6 +43,22 @@ const Index = () => {
         >
           ipc调用
         </button>
+        <button
+          onClick={async () => {
+            await window.electronAPI.user32.callDllExample();
+            const result = await window.electronAPI.user32.getCaplockStatus();
+            console.log(
+              result.code === 0
+                ? result.data!.isCapLock
+                  ? '当前大写'
+                  : '当前小写'
+                : '获取大小写状态失败',
+            );
+          }}
+          className={classNames(styles.testButton, 'test-button-local')}
+        >
+          windows dll调用
+        </button>
       </div>
       <div className={styles.optics}>
         <div>
