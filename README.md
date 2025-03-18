@@ -16,6 +16,8 @@
 - **工具函数、hooks**：提供了一些方便实用的工具函数和hooks。（详见`utils`、`hooks`）
 - **import顺序自动美化排序**：集成了 prettier-plugin-sort-imports 插件，可以自动美化 import 顺序，提高代码的可读性和可维护性。
 - **mock服务**：提供http，socket接口的mock服务功能，mock数据场景化手动编写。支持mock数据更改时热更新获取新数据。
+- **koffi**：Node.js C FFI 模块,多平台支持
+- **日志**：提供主进程，预加载脚本，渲染进程日志，默认console信息写入文件
 - **其他**：提供一些方便根据环境运行、打包的命令；配置了分包策略等等。
 - **单元测试**：基于vitest提供单元测试的案例。
 
@@ -33,6 +35,8 @@
 - **classnames**：动态类名管理工具，特别适合条件渲染样式。
 - **[@liangskyli/axios-request](https://github.com/liangskyli/request/blob/main/packages/axios-request/README.md)**：封装 HTTP 请求库，更方便与后端接口对接。
 - **[@liangskyli/mock](https://github.com/liangskyli/mock#readme)**：支持接口数据本地mock，支持数据场景化和热更新。
+- **[koffi](https://koffi.dev/)**：Node.js C FFI 模块,支持调用各个平台的共享库，如：.so, .dll, .dylib。可以不需要安装C++ 编译器
+- **[electron-log](https://github.com/megahertz/electron-log)**：提供electron主进程，预加载脚本，渲染进程日志日志功能
 - **单元测试**：基于vitest实现代码的单元测试。
 
 ### 🔧 其他推荐工具
@@ -66,6 +70,7 @@
 │   └── pre-commit # 格式化钩子配置
 ├── __test__ # 单元测试文件目录
 ├── electron # electron代码目录
+│   └── common # 主进程和预加载脚本的通用代码
 │   └── main # 主进程代码
 │   └── preload # 预加载脚本代码
 ├── mock # 接口mock数据
