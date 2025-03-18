@@ -4,8 +4,9 @@ let isInitialized = false;
 
 const initRenderLogger = () => {
   if (!isInitialized) {
-    Object.assign(console, logger.functions);
+    logger.errorHandler.startCatching();
     isInitialized = true;
+    Object.assign(console, logger.functions);
     console.log('initRenderLogger success');
   } else {
     console.log('initRenderLogger has initialized');

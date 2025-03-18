@@ -10,10 +10,10 @@ let isInitialized = false;
 const initMainLogger = () => {
   if (!isInitialized) {
     logger.initialize({ preload: true });
-    Object.assign(console, logger.functions);
     const version = app.getVersion();
 
-    logger.errorHandler.startCatching({});
+    logger.errorHandler.startCatching();
+    logger.eventLogger.startLogging();
     logger.scope.defaultLabel = 'default';
     logger.scope.labelPadding = false;
     logger.transports.console.level = false;
@@ -40,6 +40,7 @@ const initMainLogger = () => {
       );
     });
     isInitialized = true;
+    Object.assign(console, logger.functions);
     console.log('initMainLogger success');
   } else {
     console.log('initMainLogger has initialized');
