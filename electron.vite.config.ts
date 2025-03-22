@@ -1,4 +1,5 @@
-import type { ElectronViteConfig } from 'electron-vite';
+import type { ElectronViteConfig} from 'electron-vite';
+import { bytecodePlugin } from 'electron-vite';
 import { externalizeDepsPlugin } from 'electron-vite';
 import { defineConfig, mergeConfig } from 'electron-vite';
 import { resolve } from 'node:path';
@@ -23,18 +24,24 @@ export default defineConfig((configEnv) => {
 
   return {
     main: {
-      plugins: [externalizeDepsPlugin({ exclude: ['electron-updater'] })],
+      plugins: [
+        externalizeDepsPlugin(),
+        bytecodePlugin({ transformArrowFunctions: false }),
+      ],
       build: {
         outDir: 'dist-electron/main',
         rollupOptions: {
           input: {
             index: resolve(__dirname, 'electron/main/index.ts'),
           },
+          output: {
+            format: 'cjs',
+          },
         },
       },
     },
     preload: {
-      plugins: [externalizeDepsPlugin({ exclude: [] })],
+      plugins: [externalizeDepsPlugin()],
       build: {
         outDir: 'dist-electron/preload',
         rollupOptions: {
