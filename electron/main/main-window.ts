@@ -1,6 +1,7 @@
 import { BrowserWindow, app } from 'electron';
 import path from 'node:path';
 import createProtocol from './create-protocol';
+import checkUpdate from './ipc/check-update.ts';
 
 export type IContext = {
   /** is allowed quit app */
@@ -10,7 +11,7 @@ export type IContext = {
 };
 const isDevelopment = process.env.NODE_ENV === 'development';
 const context: IContext = {
-  allowQuitting: false,
+  allowQuitting: true,
 };
 
 const hideMainWindow = () => {
@@ -36,10 +37,11 @@ function createMainWindow() {
   if (isDevelopment) {
     mainWindow.webContents.openDevTools();
   }
+  checkUpdate(mainWindow);
   context.mainWindow = mainWindow;
   context.mainWindow.on('close', (event) => {
-    if (process.platform !== 'darwin') {
-      context.allowQuitting = true;
+    if (process.platform === 'darwin') {
+      //context.allowQuitting = false;
     }
     if (!context.allowQuitting) {
       event.preventDefault();

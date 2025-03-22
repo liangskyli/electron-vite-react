@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import VersionUpdate from '@/components/version-update';
 import { useRouter } from '@/hooks/use-router.ts';
 import reactLogo from '@/assets/react.svg';
 import './index.css';
@@ -9,6 +10,8 @@ const Index = () => {
   const router = useRouter();
   return (
     <div className="pg-home">
+      <VersionUpdate />
+      <br />
       <div>
         <a href="https://vite.dev" target="_blank" rel="noreferrer">
           <img src={viteLogo} className="logo" alt="Vite logo" />

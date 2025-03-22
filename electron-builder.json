@@ -32,6 +32,6 @@
   "publish": {
     "provider": "generic",
     "channel": "latest",
-    "url": ""
+    "url": "http://localhost:5173/sub/download/"
   }
 }

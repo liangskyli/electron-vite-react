@@ -23,7 +23,7 @@ export default defineConfig((configEnv) => {
 
   return {
     main: {
-      plugins: [externalizeDepsPlugin()],
+      plugins: [externalizeDepsPlugin({ exclude: ['electron-updater'] })],
       build: {
         outDir: 'dist-electron/main',
         rollupOptions: {
@@ -34,7 +34,7 @@ export default defineConfig((configEnv) => {
       },
     },
     preload: {
-      plugins: [externalizeDepsPlugin({ exclude: ['electron-log'] })],
+      plugins: [externalizeDepsPlugin({ exclude: [] })],
       build: {
         outDir: 'dist-electron/preload',
         rollupOptions: {

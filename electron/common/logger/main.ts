@@ -1,10 +1,9 @@
 import { app } from 'electron';
 import type { LogMessage, PathVariables } from 'electron-log';
+import logger from 'electron-log/main';
 import path from 'node:path';
 import { archiveLogFn } from './common';
 
-// eslint-disable-next-line @typescript-eslint/no-require-imports
-const logger = require('electron-log/main');
 let isInitialized = false;
 
 const initMainLogger = () => {
