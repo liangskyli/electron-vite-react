@@ -49,11 +49,15 @@ function createMainWindow() {
     }
   });
   if (isDevelopment && process.env['ELECTRON_RENDERER_URL']) {
-    mainWindow.loadURL(`${process.env['ELECTRON_RENDERER_URL']}#/sub/`);
+    mainWindow.loadURL(
+      `${process.env['ELECTRON_RENDERER_URL']}#${import.meta.env.VITE_BASE_ROUTER_PREFIX}`,
+    );
   } else {
     createProtocol('app');
-    mainWindow.loadURL('app://../renderer/index.html#/sub/');
-    //mainWindow.loadURL('app://../renderer/index.html#/sub/test/test1');
+    mainWindow.loadURL(
+      `app://../renderer/index.html#${import.meta.env.VITE_BASE_ROUTER_PREFIX}`,
+    );
+    //mainWindow.loadURL(`app://../renderer/index.html#${import.meta.env.VITE_BASE_ROUTER_PREFIX}test/test1`);
   }
 }
 

@@ -10,6 +10,8 @@ interface ImportMetaEnv {
   readonly VITE_APP_PORT: string;
   /** 构建输出目录 */
   readonly VITE_OUT_DIR: string;
+  /** 页面基本路由前缀 */
+  readonly VITE_BASE_ROUTER_PREFIX: string;
 }
 
 interface ImportMeta {
