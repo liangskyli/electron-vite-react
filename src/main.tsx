@@ -1,8 +1,8 @@
 import { StrictMode } from 'react';
 import { createRoot } from 'react-dom/client';
 import '@ant-design/v5-patch-for-react-19';
-// 公共样式
 import '@/styles/less/global.less';
+import '@/styles/tailwind.css';
 import {
   getRenderLogger,
   initRenderLogger,

@@ -14,7 +14,7 @@ const Index = () => {
   const [count, setCount] = useState(1);
 
   return (
-    <div className="txt-center mt10">
+    <div className="mt-[10px] text-center">
       <title>overwrite title</title>
       <button
         onClick={() => router.push('/index')}
@@ -66,6 +66,7 @@ const Index = () => {
         </div>
         <div className="test-scss">
           <button
+            className="test-button-local"
             onClick={() => {
               setCount(count + 1);
               setABC(`c${count}`);
@@ -75,6 +76,7 @@ const Index = () => {
             setABC
           </button>
           <button
+            className="test-button-local"
             onClick={() => {
               setCount(count + 1);
               setBCDF(count);

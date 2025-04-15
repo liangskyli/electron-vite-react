@@ -1,3 +1,4 @@
+import tailwindcss from '@tailwindcss/vite';
 import react from '@vitejs/plugin-react-swc';
 import { resolve } from 'node:path';
 import process from 'node:process';
@@ -32,6 +33,7 @@ export const getViteConfig: UserConfigFnObject = ({ mode }) => {
     plugins: [
       react(),
       svgr(),
+      tailwindcss(),
       // 在浏览器中直接看到上报的类型错误（更严格的类型校验）
       checker({
         typescript: true,

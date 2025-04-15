@@ -22,7 +22,10 @@ const Index = () => {
       </div>
       <h1>Vite + React</h1>
       <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
+        <button
+          className="bg-gray-300 p-[5px]"
+          onClick={() => setCount((count) => count + 1)}
+        >
           count is {count}
         </button>
         <p>
@@ -34,8 +37,8 @@ const Index = () => {
       </p>
       <br />
       <button
+        className="text-red bg-gray-300 p-[5px] text-[20px]"
         onClick={() => router.push('/test/test1')}
-        style={{ fontSize: '15px' }}
       >
         跳转测试页面
       </button>
