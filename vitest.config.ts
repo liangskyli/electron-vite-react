@@ -17,8 +17,11 @@ export default defineConfig({
       enabled: true,
       include: [
         'src/components/**/*.{js,jsx,ts,tsx}',
-        '!src/components/version-update/index.tsx',
         'src/utils/**/*.{js,jsx,ts,tsx}',
+      ],
+      exclude: [
+        'src/components/icon/icons-loader.ts', // 排除这个文件
+        'src/components/version-update/index.tsx',
       ],
       thresholds: {
         branches: 90,
