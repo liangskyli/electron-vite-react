@@ -103,7 +103,7 @@ pnpm build:pro:mac
 - **单元测试**：基于vitest实现代码的单元测试。
 
 ### 核心依赖
-- Electron 38
+- Electron 39
 - React 19
 - React Router v7
 - TypeScript
