@@ -202,13 +202,6 @@ pnpm build:pro:mac
 
 ## 🔄 降级指南
 
-### 如需降级到 React 18，请执行：
-```bash
-pnpm install react@18.3.1 react-dom@18.3.1
-```
-注意：需要替换 React 19 特有功能
-- RouterTitle组件和页面动态设置里title标签使用react-helmet替换
-
 ### Electron 版本降级
 - 你可以手动将 package.json 中的 electron 修改至低版本，支持electron最低版本25.0.0
 
