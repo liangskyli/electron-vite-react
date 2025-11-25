@@ -17,6 +17,7 @@ const initMainLogger = () => {
     logger.scope.labelPadding = false;
     logger.transports.console.level = false;
     logger.transports.file.maxSize = 1024 * 1024 * 2;
+    logger.transports.file.inspectOptions = { depth: 5 };
     logger.transports.file.archiveLogFn = archiveLogFn;
     logger.variables.version = version;
     logger.transports.file.resolvePathFn = (

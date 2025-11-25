@@ -1,6 +1,9 @@
 import type { LogFile } from 'electron-log';
 import fs from 'node:fs';
 import path from 'node:path';
+import { LogCleaner } from './clean.ts';
+
+let logCleaner: LogCleaner | undefined;
 
 function formatNumber(number: number) {
   const n = number.toString();
@@ -30,6 +33,15 @@ const fileNameFormatTime = () => {
 const archiveLogFn = (file: LogFile) => {
   const oldPath = file.toString();
   const info = path.parse(oldPath);
+  if (!logCleaner) {
+    // 初始化日志清理器
+    logCleaner = new LogCleaner({
+      // 保留 50 * 2 = 100M 日志
+      maxFiles: 50,
+      logDir: info.dir,
+      filePattern: /\.log$/, // 匹配所有.log文件
+    });
+  }
   try {
     fs.renameSync(
       oldPath,
@@ -46,6 +58,8 @@ const archiveLogFn = (file: LogFile) => {
     }
     console.warn(data);
   }
+  // 清理旧日志
+  logCleaner.cleanupOldFiles();
 };
 
 export { archiveLogFn };
