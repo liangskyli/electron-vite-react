@@ -2,7 +2,7 @@
 
 <div align="center">
 
-![Electron](https://img.shields.io/badge/Electron-37.x-47848F?logo=electron)
+![Electron](https://img.shields.io/badge/Electron-39.x-47848F?logo=electron)
 ![React](https://img.shields.io/badge/React-19.x-61DAFB?logo=react)
 ![Vite](https://img.shields.io/badge/Vite-7.x-646CFF?logo=vite)
 ![TypeScript](https://img.shields.io/badge/TypeScript-5.x-3178C6?logo=typescript)
