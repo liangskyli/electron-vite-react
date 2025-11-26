@@ -56,7 +56,6 @@ export const getViteConfig: UserConfigFnObject = ({ mode }) => {
         less: {
           javascriptEnabled: true,
         },
-        scss: {},
       },
     },
     build: {
