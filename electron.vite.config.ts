@@ -1,14 +1,12 @@
-import type { ElectronViteConfig} from 'electron-vite';
-import { bytecodePlugin } from 'electron-vite';
-import { externalizeDepsPlugin } from 'electron-vite';
+import type { UserConfig } from 'electron-vite';
 import { defineConfig, mergeConfig } from 'electron-vite';
 import { resolve } from 'node:path';
 import { getViteConfig } from './vite.config';
 
 export default defineConfig((configEnv) => {
-  const renderer: ElectronViteConfig['renderer'] = mergeConfig<
-    Required<ElectronViteConfig>['renderer'],
-    Required<ElectronViteConfig>['renderer']
+  const renderer: UserConfig['renderer'] = mergeConfig<
+    Required<UserConfig>['renderer'],
+    Required<UserConfig>['renderer']
   >(getViteConfig(configEnv), {
     root: '.',
     build: {
@@ -24,10 +22,6 @@ export default defineConfig((configEnv) => {
 
   return {
     main: {
-      plugins: [
-        externalizeDepsPlugin(),
-        bytecodePlugin({ transformArrowFunctions: false }),
-      ],
       build: {
         outDir: 'dist-electron/main',
         rollupOptions: {
@@ -38,10 +32,10 @@ export default defineConfig((configEnv) => {
             format: 'cjs',
           },
         },
+        bytecode: { transformArrowFunctions: false },
       },
     },
     preload: {
-      plugins: [externalizeDepsPlugin()],
       build: {
         outDir: 'dist-electron/preload',
         rollupOptions: {
