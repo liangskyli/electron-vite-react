@@ -1,5 +1,6 @@
 ignoredBuiltDependencies:
   - esbuild
+  - less
 onlyBuiltDependencies:
   - '@parcel/watcher'
   - '@swc/core'
